@@ -36,11 +36,7 @@ async function run() {
     }
   } catch (e) {
     core.setFailed(e.message);
-    sendNotificationSlack(
-      "#desarrollo",
-      core.getInput("SLACK_WEBHOOK"),
-      branchActive
-    );
+    
   }
 }
 
