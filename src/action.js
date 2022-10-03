@@ -40,22 +40,4 @@ async function run() {
   }
 }
 
-async function sendNotificationSlack(channel, slackWedHook, branchActive) {
-  try {
-    const payload = {
-      channel: channel,
-      username: "webhookbot",
-      text: `<@${core.getInput(
-        "slack_webhook_tag_user_id"
-      )}> Failed to merge your ${branchActive} branch from ${core.getInput(
-        "source_ref"
-      )}.`,
-      icon_emoji: ":ghost:",
-    };
-    axios.post(slackWedHook, payload);
-  } catch (error) {
-    core.setFailed(error.message);
-  }
-}
-
 run();
